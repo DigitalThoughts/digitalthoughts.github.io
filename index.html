@@ -9,6 +9,13 @@
 <body>
     <div id="qr-reader"></div>
     <div id="qr-reader-results"></div>
+    <audio id="audio" src="http://www.soundjay.com/button/beep-07.wav" autoplay="false" ></audio>
+    <script>
+    function playSound() {
+          var sound = document.getElementById("audio");
+          sound.play();
+      }
+    </script>
 
 <script>
 function getLazarSoftScanner() {
@@ -2027,6 +2034,7 @@ _defineProperty(Html5QrcodeScanner,
         var lastResult, countResults = 0;
 
         function onScanSuccess(qrCodeMessage) {
+	    playSound();
             alert(qrCodeMessage)
             
             if (qrCodeMessage !== lastResult) {
